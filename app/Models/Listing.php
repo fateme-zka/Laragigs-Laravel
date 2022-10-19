@@ -9,6 +9,9 @@ class Listing extends Model
 {
     use HasFactory;
 
+//    protected $fillable=['title','company','location','website','email','description','tags'];
+
+    // to filter showing listings in page base on what user searched or which tag user clicked:
     public function scopeFilter($query, array $filters)
     {
         // if tag is not null
@@ -25,4 +28,11 @@ class Listing extends Model
                 ->orWhere('description', 'like', '%' . request('search') . '%');
         }
     }
+
+    // Relationship to User
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 }

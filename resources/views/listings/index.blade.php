@@ -13,8 +13,12 @@
         @endforeach
         <!-- php foreach loop ends -->
         @else
-                <span class="text-3xl font-bold mb-4">---The list is empty---</span>
+            <span class="text-3xl font-bold mb-4">---The list is empty---</span>
         @endunless
+    </div>
+
+    <div class="mt-6 p-4">
+        {{$listings->links()}}
     </div>
 
 </x-layout>

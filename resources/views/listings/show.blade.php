@@ -9,7 +9,7 @@
                  style="background-color: #6f811899">
                 <img
                     class="w-48 mr-6 mb-6"
-                    src="{{asset('images/no-image.png')}}"
+                    src="{{ $listing->logo ? asset('storage/'.$listing->logo): asset('images/no-image2.png') }}"
                     alt=""
                 />
 
@@ -44,6 +44,27 @@
                 </div>
             </div>
         </x-card>
+
+        {{-- Show edit and delete listing button --}}
+        {{--<x-card class="mt-4 p-2 flex space-x-6">
+            <a href="/laragigs/public/listings/{{$listing->id}}/edit"
+               class="block w-full bg-blue-500 m-auto text-white mt-6 py-2 rounded-xl hover:opacity-80 text-center">
+                <i class="fa-solid fa-pencil"></i> Edit job
+            </a>
+
+            <div
+                class="block w-full bg-red-500 m-auto text-white mt-6 py-2 rounded-xl hover:opacity-80 text-center">
+                <form method="POST" action="/laragigs/public/listings/{{$listing->id}}">
+                    @csrf
+                    @method('DELETE')
+                    <button>
+                        <i class="fa-solid fa-trash"></i> Delete Job
+                    </button>
+                </form>
+            </div>
+
+        </x-card>--}}
+
     </div>
 
 </x-layout>
